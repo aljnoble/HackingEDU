@@ -8,7 +8,9 @@ static int32_t max_accel = 0;
 
 static AccelData get_accel_avg(AccelData *data) {
   static AccelData accel_avg;
-  accel_avg = {.x = 0, .y = 0, .z = 0 };
+  accel_avg.x = 0;
+  accel_avg.y = 0;
+  accel_avg.z = 0;
   for (size_t i = 0; i < NUM_SAMPLES; ++i) {
     accel_avg.x += data[i].x / NUM_SAMPLES;
     accel_avg.y += data[i].y / NUM_SAMPLES;

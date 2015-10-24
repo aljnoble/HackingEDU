@@ -2,28 +2,33 @@
 
 static Window *s_main_window;
 static TextLayer *s_output_layer;
+static int16_t max_accel = 0;
 
-static bool 
+static int16_t get_max_accel(AccelData *data) {
+  static AccelData max_sum = {.x = 0, .y = 0, .z = 0 };
+  for (size_t i = 0; i < sizeof(data); ++i) {
+    if (abs(data[i].x) > abs(max_sum.x))
+      max_sum.x = data[i].x;
+    if (abs(data[i].y) > abs(max_sum.y))
+      max_sum.y = data[i].y;
+    if (abs(data[i].x) > abs(max_sum.x))
+      max_sum.z = data[i].z;
+  }
+  int16_t sum = max_sum.x + max_sum.y + max_sum.z;
+  return abs(sum);
+}
 
 static void data_handler(AccelData *data, uint32_t num_samples) {
   // Long lived buffer
   static char s_buffer[128];
-  
-  static AccelData sum;
-  static AccelData max_sum;
-  sum.x = data[0].x + data[1].x + data[2].x;
-  sum.y = data[0].y + data[1].y + data[2].y;
-  sum.z = data[0].z + data[1].z + data[2].z;
-  
-  if ()
-
+  max_accel = get_max_accel(data);
   // Compose string of all data
   snprintf(s_buffer, sizeof(s_buffer), 
-    "N X,Y,Z\n0 %d,%d,%d\n1 %d,%d,%d\n2 %d,%d,%d\n\nmax %d,%d,%d", 
+    "N X,Y,Z\n0 %d,%d,%d\n1 %d,%d,%d\n2 %d,%d,%d\n\nsum %d", 
     data[0].x, data[0].y, data[0].z, 
     data[1].x, data[1].y, data[1].z, 
     data[2].x, data[2].y, data[2].z,
-    sum.x, sum.y, sum.z
+    max_accel
   );
 
   //Show the data
@@ -47,6 +52,17 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_output_layer);
 }
 
+static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
+  max_accel = 0;
+}
+
+static void click_config_provider(void *context) {
+  // Register the ClickHandlers
+  // window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
+  window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+  // window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
+}
+
 static void init() {
   // Create main Window
   s_main_window = window_create();
@@ -54,6 +70,7 @@ static void init() {
     .load = main_window_load,
     .unload = main_window_unload
   });
+  window_set_click_config_provider(s_main_window, click_config_provider);
   window_stack_push(s_main_window, true);
 
   // Subscribe to the accelerometer data service
@@ -61,7 +78,7 @@ static void init() {
   accel_data_service_subscribe(num_samples, data_handler);
 
   // Choose update rate
-  accel_service_set_sampling_rate(ACCEL_SAMPLING_10HZ);
+  accel_service_set_sampling_rate(ACCEL_SAMPLING_100HZ);
 }
 
 static void deinit() {

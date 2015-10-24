@@ -1,33 +1,33 @@
 #include <pebble.h>
 
+#define NUM_SAMPLES 1
+
 static Window *s_main_window;
 static TextLayer *s_output_layer;
-static int16_t max_accel = 0;
+static int32_t max_accel = 0;
 
-static int16_t get_max_accel(AccelData *data) {
-  static AccelData max_sum = {.x = 0, .y = 0, .z = 0 };
-  for (size_t i = 0; i < sizeof(data); ++i) {
-    if (abs(data[i].x) > abs(max_sum.x))
-      max_sum.x = data[i].x;
-    if (abs(data[i].y) > abs(max_sum.y))
-      max_sum.y = data[i].y;
-    if (abs(data[i].x) > abs(max_sum.x))
-      max_sum.z = data[i].z;
+static AccelData get_accel_avg(AccelData *data) {
+  static AccelData accel_avg;
+  accel_avg = {.x = 0, .y = 0, .z = 0 };
+  for (size_t i = 0; i < NUM_SAMPLES; ++i) {
+    accel_avg.x += data[i].x / NUM_SAMPLES;
+    accel_avg.y += data[i].y / NUM_SAMPLES;
+    accel_avg.z += data[i].z / NUM_SAMPLES;
   }
-  int16_t sum = max_sum.x + max_sum.y + max_sum.z;
-  return abs(sum);
+  return accel_avg;
 }
 
 static void data_handler(AccelData *data, uint32_t num_samples) {
   // Long lived buffer
   static char s_buffer[128];
-  max_accel = get_max_accel(data);
+  AccelData avg_accel = get_accel_avg(data);
+  int32_t sum = avg_accel.x + avg_accel.y + avg_accel.z;
+  if (sum > max_accel)
+    max_accel = sum;
   // Compose string of all data
   snprintf(s_buffer, sizeof(s_buffer), 
-    "N X,Y,Z\n0 %d,%d,%d\n1 %d,%d,%d\n2 %d,%d,%d\n\nsum %d", 
+    "N X,Y,Z\n0 %d,%d,%d\n\nsum %lu", 
     data[0].x, data[0].y, data[0].z, 
-    data[1].x, data[1].y, data[1].z, 
-    data[2].x, data[2].y, data[2].z,
     max_accel
   );
 
@@ -74,7 +74,7 @@ static void init() {
   window_stack_push(s_main_window, true);
 
   // Subscribe to the accelerometer data service
-  int num_samples = 3;
+  int num_samples = NUM_SAMPLES;
   accel_data_service_subscribe(num_samples, data_handler);
 
   // Choose update rate

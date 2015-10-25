@@ -7,7 +7,10 @@
 
 Window *s_main_window;
 static TextLayer *s_output_layer;
-static int32_t max_accel = 0;
+int32_t max_accel = 0;
+typedef enum {TITLE, RESULTS, CHOICE} states_t;
+static states_t state = TITLE;
+//static ClickConfigProvider click_config_provider;
 
 static AccelData get_accel_avg(AccelData *data) {
   static AccelData accel_avg;
@@ -35,6 +38,7 @@ static void data_handler(AccelData *data, uint32_t num_samples) {
     data[0].x, data[0].y, data[0].z,
     max_accel
   );
+  set_results_speed(max_accel);
 
   //Show the data
   //text_layer_set_text(s_output_layer, s_buffer);
@@ -58,10 +62,22 @@ static void main_window_unload(Window *window) {
 }
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
-  max_accel = 0;
-  Window* old_window = s_main_window;
-  dialog_choice_window_push();
-  window_stack_remove(old_window, true);
+  Window* old_window = NULL;
+  switch (state) {
+    case TITLE:
+      old_window = s_main_window;
+      results_window_push();
+      //window_set_click_config_provider(s_main_window, click_config_provider);
+      window_stack_remove(old_window, true);
+      accel_data_service_subscribe(NUM_SAMPLES, data_handler);
+      state = RESULTS;
+      break;
+    case RESULTS:
+      max_accel = 0;
+      break;
+    case CHOICE:
+      break;
+  }
 }
 
 static void click_config_provider(void *context) {
@@ -80,10 +96,6 @@ static void init() {
     .unload = main_window_unload
   });
   window_set_click_config_provider(s_main_window, click_config_provider);
-
-  // Subscribe to the accelerometer data service
-  int num_samples = NUM_SAMPLES;
-  accel_data_service_subscribe(num_samples, data_handler);
 
   // Choose update rate
   accel_service_set_sampling_rate(ACCEL_SAMPLING_100HZ);

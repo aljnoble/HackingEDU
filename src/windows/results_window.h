@@ -2,10 +2,12 @@
 
 #include <pebble.h>
 
-#define TITLE_WINDOW_HEADER " "
-#define TITLE_WINDOW_MESSAGE  "Press to start"
+#define RESULTS_WINDOW_HEADER "PUNCH\nNOW"
+#define RESULTS_WINDOW_MESSAGE  ""
 
-extern Window *s_main_window;
+//extern Window *s_main_window;
+extern int32_t max_accel;
 
-void title_window_push();
-void title_window_unload();
+void set_results_speed(int32_t max_accel);
+void results_window_push();
+void results_window_unload();

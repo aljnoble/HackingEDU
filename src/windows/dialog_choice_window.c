@@ -55,7 +55,7 @@ static void window_unload(Window *window) {
 void dialog_choice_window_push() {
   if(!s_main_window) {
     s_main_window = window_create();
-    window_set_background_color(s_main_window, GColorDukeBlue);
+    window_set_background_color(s_main_window, GColorRed);
     window_set_window_handlers(s_main_window, (WindowHandlers) {
         .load = window_load,
         .unload = window_unload,

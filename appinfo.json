@@ -4,7 +4,7 @@
         ""
     ],
     "companyName": "rickno104@gmail.com",
-    "longName": "FalconPunch",
+    "longName": "CobraPunch",
     "projectType": "native",
     "resources": {
         "media": [
@@ -31,7 +31,7 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "FalconPunch",
+    "shortName": "CobraPunch",
     "targetPlatforms": [
         "basalt"
     ],

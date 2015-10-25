@@ -10,8 +10,9 @@ typedef enum {
   INVALID_RESOURCE = 0,
   RESOURCE_ID_INVALID = 0,
   DEFAULT_MENU_ICON = 0, // Friendly synonym for use in `PBL_APP_INFO()` calls
-  RESOURCE_ID_TICK, // 1
-  RESOURCE_ID_CROSS, // 2
+  RESOURCE_ID_LOGO, // 1
+  RESOURCE_ID_TICK, // 2
   RESOURCE_ID_CONFIRM, // 3
+  RESOURCE_ID_CROSS, // 4
 
 } ResourceId;

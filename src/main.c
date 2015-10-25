@@ -60,6 +60,8 @@ static void main_window_unload(Window *window) {
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   max_accel = 0;
+  window_unload(s_main_window);
+  dialog_choice_window_push();
 }
 
 static void click_config_provider(void *context) {

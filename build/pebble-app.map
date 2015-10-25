@@ -3,6 +3,11 @@ Archive member included because of file (symbol)
 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
                               src/main.c.6.o (accel_data_service_unsubscribe)
 
+Allocating common symbols
+Common symbol       size              file
+
+s_main_window       0x4               src/main.c.6.o
+
 Discarded input sections
 
  .text          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
@@ -21,6 +26,24 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 src/main.c.6.o
  .text          0x0000000000000000        0x0 src/windows/dialog_choice_window.c.6.o
  .bss           0x0000000000000000        0x0 src/windows/dialog_choice_window.c.6.o
+ .text          0x0000000000000000        0x0 src/windows/results_window.c.6.o
+ .bss           0x0000000000000000        0x0 src/windows/results_window.c.6.o
+ .text.window_load
+                0x0000000000000000      0x184 src/windows/results_window.c.6.o
+ .text.results_window_unload
+                0x0000000000000000       0x58 src/windows/results_window.c.6.o
+ .text.results_window_push
+                0x0000000000000000       0x60 src/windows/results_window.c.6.o
+ .bss.s_header_layer
+                0x0000000000000000        0x4 src/windows/results_window.c.6.o
+ .rodata.str1.1
+                0x0000000000000000       0x48 src/windows/results_window.c.6.o
+ .bss.s_icon_layer
+                0x0000000000000000        0x4 src/windows/results_window.c.6.o
+ .bss.s_label_layer
+                0x0000000000000000        0x4 src/windows/results_window.c.6.o
+ .bss.s_icon_bitmap
+                0x0000000000000000        0x4 src/windows/results_window.c.6.o
  .text          0x0000000000000000        0x0 src/windows/title_window.c.6.o
  .bss           0x0000000000000000        0x0 src/windows/title_window.c.6.o
  .text          0x0000000000000000        0x0 basalt/appinfo.auto.c.6.o
@@ -521,8 +544,6 @@ Discarded input sections
  .text.window_stack_pop
                 0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
  .text.window_stack_pop_all
-                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
- .text.window_stack_remove
                 0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
  .text.app_focus_service_subscribe
                 0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
@@ -1122,6 +1143,7 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 LOAD src/main.c.6.o
 LOAD src/windows/dialog_choice_window.c.6.o
+LOAD src/windows/results_window.c.6.o
 LOAD src/windows/title_window.c.6.o
 LOAD basalt/appinfo.auto.c.6.o
 LOAD /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a
@@ -1145,7 +1167,7 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8      0x864
+.text           0x00000000000000a8      0x884
  *(.text)
  .text          0x00000000000000a8       0x14 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
  *(.text.*)
@@ -1154,221 +1176,232 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .text.click_config_provider
                 0x0000000000000120       0x10 src/main.c.6.o
  .text.select_click_handler
-                0x0000000000000130       0x24 src/main.c.6.o
+                0x0000000000000130       0x30 src/main.c.6.o
  .text.main_window_unload
-                0x0000000000000154       0x10 src/main.c.6.o
+                0x0000000000000160       0x10 src/main.c.6.o
  .text.main_window_load
-                0x0000000000000164       0x84 src/main.c.6.o
+                0x0000000000000170       0x84 src/main.c.6.o
  .text.startup.main
-                0x00000000000001e8       0x7c src/main.c.6.o
-                0x00000000000001e8                main
+                0x00000000000001f4       0x7c src/main.c.6.o
+                0x00000000000001f4                main
  .text.window_unload
-                0x0000000000000264       0x6c src/windows/dialog_choice_window.c.6.o
+                0x0000000000000270       0x6c src/windows/dialog_choice_window.c.6.o
  .text.window_load
-                0x00000000000002d0      0x158 src/windows/dialog_choice_window.c.6.o
+                0x00000000000002dc      0x158 src/windows/dialog_choice_window.c.6.o
  .text.dialog_choice_window_push
-                0x0000000000000428       0x60 src/windows/dialog_choice_window.c.6.o
-                0x0000000000000428                dialog_choice_window_push
- .text.window_unload
-                0x0000000000000488       0x50 src/windows/title_window.c.6.o
+                0x0000000000000434       0x60 src/windows/dialog_choice_window.c.6.o
+                0x0000000000000434                dialog_choice_window_push
  .text.window_load
-                0x00000000000004d8      0x184 src/windows/title_window.c.6.o
+                0x0000000000000494      0x184 src/windows/title_window.c.6.o
+ .text.title_window_unload
+                0x0000000000000618       0x58 src/windows/title_window.c.6.o
+                0x0000000000000618                title_window_unload
  .text.title_window_push
-                0x000000000000065c       0x60 src/windows/title_window.c.6.o
-                0x000000000000065c                title_window_push
+                0x0000000000000670       0x60 src/windows/title_window.c.6.o
+                0x0000000000000670                title_window_push
  .text.accel_data_service_unsubscribe
-                0x00000000000006bc        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006bc                accel_data_service_unsubscribe
+                0x00000000000006d0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000006d0                accel_data_service_unsubscribe
  .text.accel_service_set_sampling_rate
-                0x00000000000006c8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006c8                accel_service_set_sampling_rate
+                0x00000000000006dc        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000006dc                accel_service_set_sampling_rate
  .text.app_event_loop
-                0x00000000000006d4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006d4                app_event_loop
+                0x00000000000006e8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000006e8                app_event_loop
  .text.bitmap_layer_create
-                0x00000000000006e0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006e0                bitmap_layer_create
+                0x00000000000006f4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000006f4                bitmap_layer_create
  .text.bitmap_layer_destroy
-                0x00000000000006ec        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006ec                bitmap_layer_destroy
+                0x0000000000000700        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000700                bitmap_layer_destroy
  .text.bitmap_layer_get_layer
-                0x00000000000006f8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000006f8                bitmap_layer_get_layer
+                0x000000000000070c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000070c                bitmap_layer_get_layer
  .text.bitmap_layer_set_bitmap
-                0x0000000000000704        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000704                bitmap_layer_set_bitmap
+                0x0000000000000718        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000718                bitmap_layer_set_bitmap
  .text.bitmap_layer_set_compositing_mode
-                0x0000000000000710        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000710                bitmap_layer_set_compositing_mode
+                0x0000000000000724        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000724                bitmap_layer_set_compositing_mode
  .text.fonts_get_system_font
-                0x000000000000071c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000071c                fonts_get_system_font
+                0x0000000000000730        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000730                fonts_get_system_font
  .text.gbitmap_create_with_resource
-                0x0000000000000728        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000728                gbitmap_create_with_resource
+                0x000000000000073c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000073c                gbitmap_create_with_resource
  .text.gbitmap_destroy
-                0x0000000000000734        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000734                gbitmap_destroy
+                0x0000000000000748        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000748                gbitmap_destroy
  .text.layer_add_child
-                0x0000000000000740        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000740                layer_add_child
+                0x0000000000000754        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000754                layer_add_child
  .text.layer_get_bounds
-                0x000000000000074c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000074c                layer_get_bounds
- .text.memset   0x0000000000000758        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000758                memset
+                0x0000000000000760        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000760                layer_get_bounds
+ .text.memset   0x000000000000076c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000076c                memset
  .text.snprintf
-                0x0000000000000764        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000764                snprintf
+                0x0000000000000778        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000778                snprintf
  .text.window_create
-                0x0000000000000770        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000770                window_create
+                0x0000000000000784        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000784                window_create
  .text.window_destroy
-                0x000000000000077c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000077c                window_destroy
+                0x0000000000000790        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000790                window_destroy
  .text.window_get_root_layer
-                0x0000000000000788        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000788                window_get_root_layer
+                0x000000000000079c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000079c                window_get_root_layer
  .text.window_set_click_config_provider
-                0x0000000000000794        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000794                window_set_click_config_provider
+                0x00000000000007a8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007a8                window_set_click_config_provider
  .text.window_set_window_handlers
-                0x00000000000007a0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007a0                window_set_window_handlers
+                0x00000000000007b4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007b4                window_set_window_handlers
  .text.window_stack_push
-                0x00000000000007ac        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007ac                window_stack_push
+                0x00000000000007c0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007c0                window_stack_push
+ .text.window_stack_remove
+                0x00000000000007cc        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007cc                window_stack_remove
  .text.window_single_click_subscribe
-                0x00000000000007b8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007b8                window_single_click_subscribe
+                0x00000000000007d8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007d8                window_single_click_subscribe
  .text.accel_data_service_subscribe
-                0x00000000000007c4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007c4                accel_data_service_subscribe
+                0x00000000000007e4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007e4                accel_data_service_subscribe
  .text.window_set_background_color
-                0x00000000000007d0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007d0                window_set_background_color
+                0x00000000000007f0        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007f0                window_set_background_color
  .text.gbitmap_get_bounds
-                0x00000000000007dc        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007dc                gbitmap_get_bounds
+                0x00000000000007fc        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x00000000000007fc                gbitmap_get_bounds
  .text.action_bar_layer_add_to_window
-                0x00000000000007e8        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007e8                action_bar_layer_add_to_window
+                0x0000000000000808        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000808                action_bar_layer_add_to_window
  .text.action_bar_layer_create
-                0x00000000000007f4        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x00000000000007f4                action_bar_layer_create
+                0x0000000000000814        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000814                action_bar_layer_create
  .text.action_bar_layer_destroy
-                0x0000000000000800        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000800                action_bar_layer_destroy
+                0x0000000000000820        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000820                action_bar_layer_destroy
  .text.action_bar_layer_set_icon
-                0x000000000000080c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000080c                action_bar_layer_set_icon
+                0x000000000000082c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000082c                action_bar_layer_set_icon
  .text.text_layer_create
-                0x0000000000000818        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000818                text_layer_create
+                0x0000000000000838        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000838                text_layer_create
  .text.text_layer_destroy
-                0x0000000000000824        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000824                text_layer_destroy
+                0x0000000000000844        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000844                text_layer_destroy
  .text.text_layer_get_layer
-                0x0000000000000830        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000830                text_layer_get_layer
+                0x0000000000000850        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000850                text_layer_get_layer
  .text.text_layer_set_background_color
-                0x000000000000083c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000083c                text_layer_set_background_color
+                0x000000000000085c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000085c                text_layer_set_background_color
  .text.text_layer_set_font
-                0x0000000000000848        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000848                text_layer_set_font
+                0x0000000000000868        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000868                text_layer_set_font
  .text.text_layer_set_overflow_mode
-                0x0000000000000854        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000854                text_layer_set_overflow_mode
+                0x0000000000000874        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000874                text_layer_set_overflow_mode
  .text.text_layer_set_text
-                0x0000000000000860        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x0000000000000860                text_layer_set_text
+                0x0000000000000880        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x0000000000000880                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x000000000000086c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
-                0x000000000000086c                text_layer_set_text_alignment
+                0x000000000000088c        0xc /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000088c                text_layer_set_text_alignment
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000000878       0x3f src/main.c.6.o
+                0x0000000000000898       0x3f src/main.c.6.o
  .rodata.str1.1
-                0x00000000000008b7       0x28 src/windows/dialog_choice_window.c.6.o
+                0x00000000000008d7       0x28 src/windows/dialog_choice_window.c.6.o
  .rodata.str1.1
-                0x00000000000008df       0x2d src/windows/title_window.c.6.o
+                0x00000000000008ff       0x2d src/windows/title_window.c.6.o
                                          0x48 (size before relaxing)
 
-.glue_7         0x000000000000090c        0x0
+.glue_7         0x000000000000092c        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x000000000000090c        0x0
+.glue_7t        0x000000000000092c        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000090c        0x0
+.vfp11_veneer   0x000000000000092c        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x000000000000090c        0x0
+.v4_bx          0x000000000000092c        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x000000000000090c        0x0
+.iplt           0x000000000000092c        0x0
  .iplt          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x000000000000090c        0x0
+.rel.dyn        0x000000000000092c        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .rel.got       0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x000000000000090c        0x4
+.data           0x000000000000092c        0x4
  *(.data)
- .data          0x000000000000090c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x000000000000090c        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x000000000000090c                __dso_handle
- .data          0x0000000000000910        0x0 src/main.c.6.o
- .data          0x0000000000000910        0x0 src/windows/dialog_choice_window.c.6.o
- .data          0x0000000000000910        0x0 src/windows/title_window.c.6.o
- .data          0x0000000000000910        0x0 basalt/appinfo.auto.c.6.o
- .data          0x0000000000000910        0x0 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
- .data          0x0000000000000910        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x0000000000000910        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x000000000000092c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x000000000000092c        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000092c                __dso_handle
+ .data          0x0000000000000930        0x0 src/main.c.6.o
+ .data          0x0000000000000930        0x0 src/windows/dialog_choice_window.c.6.o
+ .data          0x0000000000000930        0x0 src/windows/results_window.c.6.o
+ .data          0x0000000000000930        0x0 src/windows/title_window.c.6.o
+ .data          0x0000000000000930        0x0 basalt/appinfo.auto.c.6.o
+ .data          0x0000000000000930        0x0 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+ .data          0x0000000000000930        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000000930        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
 
-.igot.plt       0x0000000000000910        0x0
+.igot.plt       0x0000000000000930        0x0
  .igot.plt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.bss            0x0000000000000910       0xcc
+.got            0x0000000000000930        0x4
+ .got           0x0000000000000930        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.got.plt        0x0000000000000934        0xc
+ .got.plt       0x0000000000000934        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000000934                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x0000000000000940       0xc8
  *(.bss)
  *(.bss.*)
  .bss.s_output_layer
-                0x0000000000000910        0x4 src/main.c.6.o
- .bss.accel_avg.7289
-                0x0000000000000914        0xf src/main.c.6.o
- .bss.s_buffer.7298
-                0x0000000000000923       0x80 src/main.c.6.o
- *fill*         0x00000000000009a3        0x1 
- .bss.s_main_window
-                0x00000000000009a4        0x4 src/main.c.6.o
+                0x0000000000000940        0x4 src/main.c.6.o
+ .bss.accel_avg.7294
+                0x0000000000000944        0xf src/main.c.6.o
+ .bss.s_buffer.7303
+                0x0000000000000953       0x80 src/main.c.6.o
+ *fill*         0x00000000000009d3        0x1 
  .bss.max_accel
-                0x00000000000009a8        0x4 src/main.c.6.o
+                0x00000000000009d4        0x4 src/main.c.6.o
  .bss.s_cross_bitmap
-                0x00000000000009ac        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009d8        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_tick_bitmap
-                0x00000000000009b0        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009dc        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_icon_bitmap
-                0x00000000000009b4        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009e0        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_icon_layer
-                0x00000000000009b8        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009e4        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_label_layer
-                0x00000000000009bc        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009e8        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_action_bar_layer
-                0x00000000000009c0        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009ec        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_main_window
-                0x00000000000009c4        0x4 src/windows/dialog_choice_window.c.6.o
+                0x00000000000009f0        0x4 src/windows/dialog_choice_window.c.6.o
  .bss.s_header_layer
-                0x00000000000009c8        0x4 src/windows/title_window.c.6.o
+                0x00000000000009f4        0x4 src/windows/title_window.c.6.o
  .bss.s_icon_layer
-                0x00000000000009cc        0x4 src/windows/title_window.c.6.o
+                0x00000000000009f8        0x4 src/windows/title_window.c.6.o
  .bss.s_label_layer
-                0x00000000000009d0        0x4 src/windows/title_window.c.6.o
+                0x00000000000009fc        0x4 src/windows/title_window.c.6.o
  .bss.s_icon_bitmap
-                0x00000000000009d4        0x4 src/windows/title_window.c.6.o
- .bss.s_main_window
-                0x00000000000009d8        0x4 src/windows/title_window.c.6.o
+                0x0000000000000a00        0x4 src/windows/title_window.c.6.o
+ COMMON         0x0000000000000a04        0x4 src/main.c.6.o
+                0x0000000000000a04                s_main_window
 
 DISCARD
  libc.a(*)
@@ -1388,74 +1421,87 @@ OUTPUT(/Users/rfulscher/HackingEDU/build/basalt/pebble-app.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000075       0x33 src/windows/dialog_choice_window.c.6.o
  .ARM.attributes
-                0x00000000000000a8       0x33 src/windows/title_window.c.6.o
+                0x00000000000000a8       0x33 src/windows/results_window.c.6.o
  .ARM.attributes
-                0x00000000000000db       0x33 basalt/appinfo.auto.c.6.o
+                0x00000000000000db       0x33 src/windows/title_window.c.6.o
  .ARM.attributes
-                0x000000000000010e       0x21 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
+                0x000000000000010e       0x33 basalt/appinfo.auto.c.6.o
  .ARM.attributes
-                0x000000000000012f       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+                0x0000000000000141       0x21 /usr/local/Cellar/pebble-sdk/3.6/Pebble/basalt/lib/libpebble.a(tmpIg2f7tpebble.o)
  .ARM.attributes
-                0x0000000000000158       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+                0x0000000000000162       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .ARM.attributes
+                0x000000000000018b       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
 
 .comment        0x0000000000000000       0x4e
  .comment       0x0000000000000000       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
                                          0x4f (size before relaxing)
  .comment       0x0000000000000000       0x4f src/main.c.6.o
  .comment       0x0000000000000000       0x4f src/windows/dialog_choice_window.c.6.o
+ .comment       0x0000000000000000       0x4f src/windows/results_window.c.6.o
  .comment       0x0000000000000000       0x4f src/windows/title_window.c.6.o
  .comment       0x0000000000000000       0x4f basalt/appinfo.auto.c.6.o
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x1fb7
- .debug_info    0x0000000000000000      0x998 src/main.c.6.o
- .debug_info    0x0000000000000998      0x9e2 src/windows/dialog_choice_window.c.6.o
- .debug_info    0x000000000000137a      0x924 src/windows/title_window.c.6.o
- .debug_info    0x0000000000001c9e      0x319 basalt/appinfo.auto.c.6.o
+.debug_info     0x0000000000000000     0x28f1
+ .debug_info    0x0000000000000000      0x9b4 src/main.c.6.o
+ .debug_info    0x00000000000009b4      0x9e2 src/windows/dialog_choice_window.c.6.o
+ .debug_info    0x0000000000001396      0x921 src/windows/results_window.c.6.o
+ .debug_info    0x0000000000001cb7      0x921 src/windows/title_window.c.6.o
+ .debug_info    0x00000000000025d8      0x319 basalt/appinfo.auto.c.6.o
 
-.debug_abbrev   0x0000000000000000      0x777
- .debug_abbrev  0x0000000000000000      0x2d1 src/main.c.6.o
- .debug_abbrev  0x00000000000002d1      0x204 src/windows/dialog_choice_window.c.6.o
- .debug_abbrev  0x00000000000004d5      0x204 src/windows/title_window.c.6.o
- .debug_abbrev  0x00000000000006d9       0x9e basalt/appinfo.auto.c.6.o
+.debug_abbrev   0x0000000000000000      0x9c6
+ .debug_abbrev  0x0000000000000000      0x2c6 src/main.c.6.o
+ .debug_abbrev  0x00000000000002c6      0x204 src/windows/dialog_choice_window.c.6.o
+ .debug_abbrev  0x00000000000004ca      0x22f src/windows/results_window.c.6.o
+ .debug_abbrev  0x00000000000006f9      0x22f src/windows/title_window.c.6.o
+ .debug_abbrev  0x0000000000000928       0x9e basalt/appinfo.auto.c.6.o
 
-.debug_loc      0x0000000000000000      0x3fd
+.debug_loc      0x0000000000000000      0x4de
  .debug_loc     0x0000000000000000      0x210 src/main.c.6.o
  .debug_loc     0x0000000000000210      0x10c src/windows/dialog_choice_window.c.6.o
- .debug_loc     0x000000000000031c       0xe1 src/windows/title_window.c.6.o
+ .debug_loc     0x000000000000031c       0xe1 src/windows/results_window.c.6.o
+ .debug_loc     0x00000000000003fd       0xe1 src/windows/title_window.c.6.o
 
-.debug_aranges  0x0000000000000000       0xc0
+.debug_aranges  0x0000000000000000       0xf0
  .debug_aranges
                 0x0000000000000000       0x48 src/main.c.6.o
  .debug_aranges
                 0x0000000000000048       0x30 src/windows/dialog_choice_window.c.6.o
  .debug_aranges
-                0x0000000000000078       0x30 src/windows/title_window.c.6.o
+                0x0000000000000078       0x30 src/windows/results_window.c.6.o
  .debug_aranges
-                0x00000000000000a8       0x18 basalt/appinfo.auto.c.6.o
+                0x00000000000000a8       0x30 src/windows/title_window.c.6.o
+ .debug_aranges
+                0x00000000000000d8       0x18 basalt/appinfo.auto.c.6.o
 
-.debug_ranges   0x0000000000000000       0xd8
- .debug_ranges  0x0000000000000000       0x98 src/main.c.6.o
- .debug_ranges  0x0000000000000098       0x20 src/windows/dialog_choice_window.c.6.o
- .debug_ranges  0x00000000000000b8       0x20 src/windows/title_window.c.6.o
+.debug_ranges   0x0000000000000000      0x128
+ .debug_ranges  0x0000000000000000       0xc8 src/main.c.6.o
+ .debug_ranges  0x00000000000000c8       0x20 src/windows/dialog_choice_window.c.6.o
+ .debug_ranges  0x00000000000000e8       0x20 src/windows/results_window.c.6.o
+ .debug_ranges  0x0000000000000108       0x20 src/windows/title_window.c.6.o
 
-.debug_line     0x0000000000000000      0x6e9
- .debug_line    0x0000000000000000      0x247 src/main.c.6.o
- .debug_line    0x0000000000000247      0x1c0 src/windows/dialog_choice_window.c.6.o
- .debug_line    0x0000000000000407      0x1b5 src/windows/title_window.c.6.o
- .debug_line    0x00000000000005bc      0x12d basalt/appinfo.auto.c.6.o
+.debug_line     0x0000000000000000      0x8d9
+ .debug_line    0x0000000000000000      0x252 src/main.c.6.o
+ .debug_line    0x0000000000000252      0x1c0 src/windows/dialog_choice_window.c.6.o
+ .debug_line    0x0000000000000412      0x1cf src/windows/results_window.c.6.o
+ .debug_line    0x00000000000005e1      0x1cb src/windows/title_window.c.6.o
+ .debug_line    0x00000000000007ac      0x12d basalt/appinfo.auto.c.6.o
 
-.debug_str      0x0000000000000000      0xa6b
- .debug_str     0x0000000000000000      0x54b src/main.c.6.o
-                                        0x5e8 (size before relaxing)
- .debug_str     0x000000000000054b      0x37f src/windows/dialog_choice_window.c.6.o
+.debug_str      0x0000000000000000      0xae8
+ .debug_str     0x0000000000000000      0x55c src/main.c.6.o
+                                        0x5f9 (size before relaxing)
+ .debug_str     0x000000000000055c      0x38d src/windows/dialog_choice_window.c.6.o
                                         0x671 (size before relaxing)
- .debug_str     0x00000000000008ca       0x2d src/windows/title_window.c.6.o
-                                        0x576 (size before relaxing)
- .debug_str     0x00000000000008f7      0x174 basalt/appinfo.auto.c.6.o
+ .debug_str     0x00000000000008e9       0x59 src/windows/results_window.c.6.o
+                                        0x582 (size before relaxing)
+ .debug_str     0x0000000000000942       0x32 src/windows/title_window.c.6.o
+                                        0x57c (size before relaxing)
+ .debug_str     0x0000000000000974      0x174 basalt/appinfo.auto.c.6.o
                                         0x2c4 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x184
+.debug_frame    0x0000000000000000      0x1fc
  .debug_frame   0x0000000000000000       0xa4 src/main.c.6.o
  .debug_frame   0x00000000000000a4       0x70 src/windows/dialog_choice_window.c.6.o
- .debug_frame   0x0000000000000114       0x70 src/windows/title_window.c.6.o
+ .debug_frame   0x0000000000000114       0x74 src/windows/results_window.c.6.o
+ .debug_frame   0x0000000000000188       0x74 src/windows/title_window.c.6.o

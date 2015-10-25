@@ -1,12 +1,11 @@
 #include <pebble.h>
 #include "windows/dialog_choice_window.h"
 #include "windows/title_window.h"
+#include "windows/results_window.h"
 
 #define NUM_SAMPLES 1
 
-#define NUM_WINDOWS 10
-
-static Window *s_main_window;
+Window *s_main_window;
 static TextLayer *s_output_layer;
 static int32_t max_accel = 0;
 
@@ -60,8 +59,9 @@ static void main_window_unload(Window *window) {
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   max_accel = 0;
-  window_unload(s_main_window);
+  Window* old_window = s_main_window;
   dialog_choice_window_push();
+  window_stack_remove(old_window, true);
 }
 
 static void click_config_provider(void *context) {
@@ -73,13 +73,13 @@ static void click_config_provider(void *context) {
 
 static void init() {
   // Create main Window
-  s_main_window = window_create();
+  //s_main_window = window_create();
+  title_window_push();
   window_set_window_handlers(s_main_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload
   });
   window_set_click_config_provider(s_main_window, click_config_provider);
-  title_window_push();
 
   // Subscribe to the accelerometer data service
   int num_samples = NUM_SAMPLES;

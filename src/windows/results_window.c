@@ -2,7 +2,7 @@
  * Game title screen
  */
 
-#include "title_window.h"
+#include "results_window.h"
 
 static TextLayer *s_label_layer;
 static TextLayer *s_header_layer;
@@ -40,7 +40,7 @@ static void window_load(Window *window) {
   layer_add_child(window_layer, text_layer_get_layer(s_label_layer));
 }
 
-void title_window_unload(Window *window) {
+void results_window_unload(Window *window) {
   text_layer_destroy(s_header_layer);
   text_layer_destroy(s_label_layer);
   bitmap_layer_destroy(s_icon_layer);
@@ -51,13 +51,13 @@ void title_window_unload(Window *window) {
   s_main_window = NULL;
 }
 
-void title_window_push() {
+void results_window_push() {
   if(!s_main_window) {
     s_main_window = window_create();
     window_set_background_color(s_main_window, GColorTiffanyBlue);
     window_set_window_handlers(s_main_window, (WindowHandlers) {
         .load = window_load,
-        .unload = title_window_unload,
+        .unload = results_window_unload,
     });
   }
   window_stack_push(s_main_window, true);

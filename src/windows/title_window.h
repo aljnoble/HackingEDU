@@ -2,7 +2,7 @@
 
 #include <pebble.h>
 
-#define TITLE_WINDOW_HEADER  "COBRA PUNCH"
+#define TITLE_WINDOW_HEADER " "
 #define TITLE_WINDOW_MESSAGE  "Press to start"
 
 

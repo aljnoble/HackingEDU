@@ -9,8 +9,10 @@ Window *s_main_window;
 static TextLayer *s_output_layer;
 int32_t max_accel = 0;
 typedef enum {TITLE, RESULTS, CHOICE} states_t;
-static states_t state = TITLE;
+states_t state = TITLE;
 //static ClickConfigProvider click_config_provider;
+
+static void click_config_provider(void *context);
 
 static AccelData get_accel_avg(AccelData *data) {
   static AccelData accel_avg;
@@ -38,7 +40,7 @@ static void data_handler(AccelData *data, uint32_t num_samples) {
     data[0].x, data[0].y, data[0].z,
     max_accel
   );
-  set_results_speed(max_accel);
+  set_results_speed(((double)max_accel)/100.0);
 
   //Show the data
   //text_layer_set_text(s_output_layer, s_buffer);
@@ -71,9 +73,14 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
       window_stack_remove(old_window, true);
       accel_data_service_subscribe(NUM_SAMPLES, data_handler);
       state = RESULTS;
+      window_set_click_config_provider(window_stack_get_top_window(),
+        click_config_provider);
       break;
     case RESULTS:
       max_accel = 0;
+      //dialog_choice_window_push();
+      //window_stack_remove(old_window, true);
+      //state = CHOICE;
       break;
     case CHOICE:
       break;

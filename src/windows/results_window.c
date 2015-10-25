@@ -36,16 +36,15 @@ static void window_load(Window *window) {
 
   s_label_layer = text_layer_create(GRect(10, 30 + bitmap_bounds.size.h + 5, 124,
     bounds.size.h - (10 + bitmap_bounds.size.h + 15)));
-  snprintf(buffer, sizeof(buffer), "Max speed:\n%lum-gees", max_accel);
-  text_layer_set_text(s_label_layer, buffer);
+  set_results_speed(0);
   text_layer_set_background_color(s_label_layer, GColorClear);
   text_layer_set_text_alignment(s_label_layer, GTextAlignmentCenter);
   text_layer_set_font(s_label_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(s_label_layer));
 }
 
-void set_results_speed(int32_t max_accel) {
-  snprintf(buffer, sizeof(buffer), "Max speed:\n%lum-gees", max_accel);
+void set_results_speed(double speed) {
+  snprintf(buffer, sizeof(buffer), "Max speed:\n%lumph", (int32_t)speed);
   text_layer_set_text(s_label_layer, buffer);
 }
 

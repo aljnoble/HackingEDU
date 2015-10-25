@@ -8,6 +8,6 @@
 //extern Window *s_main_window;
 extern int32_t max_accel;
 
-void set_results_speed(int32_t max_accel);
+void set_results_speed(double speed);
 void results_window_push();
 void results_window_unload();

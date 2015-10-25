@@ -7,10 +7,36 @@
     "longName": "FalconPunch",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/cross.png",
+                "name": "CROSS",
+                "type": "png"
+            },
+            {
+                "file": "images/punch.png",
+                "name": "CONFIRM",
+                "type": "png"
+            },
+            {
+                "file": "images/cobrapunch1.png",
+                "menuIcon": true,
+                "name": "cobra_icon",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
+                ],
+                "type": "png"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "FalconPunch",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
     "uuid": "58a9fcf6-ec47-47fe-888f-7262af6188f5",
     "versionLabel": "1.0",
     "watchapp": {

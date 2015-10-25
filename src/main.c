@@ -1,6 +1,10 @@
 #include <pebble.h>
+#include "windows/dialog_choice_window.h"
+#include "windows/title_window.h"
 
 #define NUM_SAMPLES 1
+
+#define NUM_WINDOWS 10
 
 static Window *s_main_window;
 static TextLayer *s_output_layer;
@@ -27,14 +31,14 @@ static void data_handler(AccelData *data, uint32_t num_samples) {
   if (sum > max_accel)
     max_accel = sum;
   // Compose string of all data
-  snprintf(s_buffer, sizeof(s_buffer), 
-    "N X,Y,Z\n0 %d,%d,%d\n\nsum %lu", 
-    data[0].x, data[0].y, data[0].z, 
+  snprintf(s_buffer, sizeof(s_buffer),
+    "N X,Y,Z\n0 %d,%d,%d\n\nsum %lu",
+    data[0].x, data[0].y, data[0].z,
     max_accel
   );
 
   //Show the data
-  text_layer_set_text(s_output_layer, s_buffer);
+  //text_layer_set_text(s_output_layer, s_buffer);
 }
 
 static void main_window_load(Window *window) {
@@ -73,7 +77,7 @@ static void init() {
     .unload = main_window_unload
   });
   window_set_click_config_provider(s_main_window, click_config_provider);
-  window_stack_push(s_main_window, true);
+  title_window_push();
 
   // Subscribe to the accelerometer data service
   int num_samples = NUM_SAMPLES;

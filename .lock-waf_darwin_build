@@ -1,0 +1,8 @@
+argv = ['/usr/local/Cellar/pebble-sdk/3.6/Pebble/waf', 'configure']
+environ = {'TERM_SESSION_ID': '2567B3C9-031B-4551-8DD6-7367AA53008C', 'XPC_SERVICE_NAME': '0', 'PYTHONPATH': '/usr/local/Cellar/pebble-sdk/3.6/libexec/lib/python2.7/site-packages:/usr/local/Cellar/pebble-sdk/3.6/lib/python2.7/site-packages', 'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '343.7', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.XhotrQKFJp/Listeners', 'SHELL': '/bin/bash', 'LOGNAME': 'rfulscher', 'USER': 'rfulscher', 'NO_GCE_CHECK': 'False', 'HOME': '/Users/rfulscher', 'PATH': '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/rfulscher/gwt-2.7.0/:/usr/local/Cellar/pebble-sdk/3.6/arm-cs-tools/bin', 'DISPLAY': '/private/tmp/com.apple.launchd.oHYC3AYWxz/org.macosforge.xquartz:0', 'TMPDIR': '/var/folders/1n/74cxwngd21jgk7ry3qswkg540000gn/T/', 'TERM_PROGRAM': 'Apple_Terminal', 'LANG': 'en_US.UTF-8', 'TERM': 'xterm-256color', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.fZQfWT9Ssn/Render', 'VERSIONER_PYTHON_VERSION': '2.7', 'SHLVL': '1', 'XPC_FLAGS': '0x0', '__CF_USER_TEXT_ENCODING': '0x1F5:0x0:0x0', 'PWD': '/Users/rfulscher/HackingEDU', '_': '/usr/local/bin/pebble'}
+files = ['/Users/rfulscher/HackingEDU/wscript']
+hash = 7073463171006590119
+options = {'files': '', 'jobs': 4, 'verbose': 0, 'nocache': False, 'progress_bar': 0, 'timestamp': None, 'distcheck_args': None, 'top': '', 'destdir': '', 'keep': 0, 'zones': '', 'debug': False, 'prefix': '/usr/local/', 'download': False, 'force': False, 'targets': '', 'out': ''}
+out_dir = '/Users/rfulscher/HackingEDU/build'
+run_dir = '/Users/rfulscher/HackingEDU'
+top_dir = '/Users/rfulscher/HackingEDU'
